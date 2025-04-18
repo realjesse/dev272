@@ -7,8 +7,11 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.textEntryContainer}>
         <TextInput style={styles.input}></TextInput>
+        <Button
+          title="test"
+          onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
       </ScrollView>
@@ -27,5 +30,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderRadius: 10
+  },
+
+  textEntryContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 15,
+    margin: 10
   }
 });
