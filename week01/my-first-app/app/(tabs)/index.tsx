@@ -44,10 +44,12 @@ export default function HomeScreen() {
           onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
-        <FlatList
-          data={movieList}
-          renderItem={({item}) => <Text>{item.name}</Text>}
-        />
+        <View>
+          <FlatList
+            data={movieList}
+            renderItem={({item}) => <Text>{item.name}</Text>}
+          />
+        </View>
       </ScrollView>
     </View>
   );
