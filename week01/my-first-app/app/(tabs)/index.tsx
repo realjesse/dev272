@@ -23,7 +23,7 @@ const movieList = [
     year: 1972,
     length: 175,
     rating: 9.2
-  }
+  },
 
   {
     name: "Kung Fu Hustle",
@@ -44,6 +44,10 @@ export default function HomeScreen() {
           onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
+        <FlatList
+          data={movieList}
+          renderItem={({item}) => <Text>{item.name}</Text>}
+        />
       </ScrollView>
     </View>
   );
