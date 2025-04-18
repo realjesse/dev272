@@ -8,7 +8,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-
+        <TextInput style={styles.input}></TextInput>
       </ScrollView>
     </View>
   );
@@ -17,5 +17,13 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+
+  input: {
+    height: 50,
+    width: 200,
+    padding: 10,
+    borderWidth: 1,
+    borderRadius: 10
   }
 });
