@@ -1,9 +1,5 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
 
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -36,6 +32,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 15,
-    margin: 10
+    margin: 10,
   }
 });
