@@ -1,5 +1,39 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
 
+const movieList = [
+  {
+    name: "Oldboy",
+    director: "Park Chan-wook",
+    year: 2003,
+    length: 120,
+    rating: 8.3
+  },
+
+  {
+    name: "The Count of Monte Cristo",
+    director: "Kevin Reynolds",
+    year: 2002,
+    length: 131,
+    rating: 7.7
+  },
+
+  {
+    name: "The Godfather",
+    director: "Francis Ford Coppola",
+    year: 1972,
+    length: 175,
+    rating: 9.2
+  }
+
+  {
+    name: "Kung Fu Hustle",
+    director: "Stephen Chow",
+    year: 2004,
+    length: 99,
+    rating: 7.7
+  }
+]
+
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
