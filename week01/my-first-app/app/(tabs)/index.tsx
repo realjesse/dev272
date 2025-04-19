@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
 
+// Russian Peredvizhniki art movement list
 const russianPeredvizhnikiList = [
   {
     name: "Portrait of an Unknown Woman",
@@ -9,6 +10,7 @@ const russianPeredvizhnikiList = [
   },
 ];
 
+// English Victorian art movement list
 const englishVictorianList = [
   {
     name: "A Private View at the Royal Academy",
@@ -18,6 +20,7 @@ const englishVictorianList = [
   },
 ]
 
+// American Hudson River School art movement list
 const americanHudsonRiverSchoolList = [
   {
     name: "The Oxbow",
@@ -27,6 +30,8 @@ const americanHudsonRiverSchoolList = [
   },
 ]
 
+// Item used for all items produced by FlatList on homepage
+// Depicts an image, with name of artwork below, then below that artists and year produced
 const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
   <View>
     <Image
@@ -51,6 +56,18 @@ export default function HomeScreen() {
         <View>
           <FlatList
             data={russianPeredvizhnikiList}
+            renderItem={({item}) => <Item item={item}/>}
+          />
+        </View>
+        <View>
+          <FlatList
+            data={englishVictorianList}
+            renderItem={({item}) => <Item item={item}/>}
+          />
+        </View>
+        <View>
+          <FlatList
+            data={americanHudsonRiverSchoolList}
             renderItem={({item}) => <Item item={item}/>}
           />
         </View>
