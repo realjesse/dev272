@@ -95,7 +95,7 @@ export default function HomeScreen() {
           onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
-        <Text style={styles.header}>Russian Peredvizhnik Movement</Text>
+        <Text style={styles.header}>Russian Peredvizhniki Movement</Text>
         <View>
           <FlatList
             data={russianPeredvizhnikiList}
@@ -142,8 +142,9 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 100,
-    height: 100
+    width: 200,
+    height: 200,
+    resizeMode: 'contain'
   },
 
   header: {
