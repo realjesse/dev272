@@ -32,7 +32,27 @@ const movieList = [
     length: 99,
     rating: 7.7
   }
-]
+];
+
+const russianPeredvizhnikiList = [
+  {
+    name: "Portrait of an Unknown Woman",
+    artist: "Ivan Kramskoi",
+    year: 1883,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kramskoy_Portrait_of_a_Woman.jpg/1024px-Kramskoy_Portrait_of_a_Woman.jpg",
+  },
+];
+
+const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => {
+  <View>
+    <Image
+      source={{uri: item.link}}
+      style={styles.image}
+    />
+    <Text>{item.name}</Text>
+    <Text>{item.artist}, {item.year}</Text>
+  </View>
+}
 
 export default function HomeScreen() {
   return (
@@ -73,5 +93,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: 15,
     margin: 10,
+  },
+
+  image: {
+    width: 100,
+    height: 100
   }
 });
