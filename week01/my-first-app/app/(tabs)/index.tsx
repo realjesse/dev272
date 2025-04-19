@@ -8,6 +8,20 @@ const russianPeredvizhnikiList = [
     year: 1883,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kramskoy_Portrait_of_a_Woman.jpg/1024px-Kramskoy_Portrait_of_a_Woman.jpg",
   },
+
+  {
+    name: "Girl with Peaches",
+    artist: "Valentin Serov",
+    year: 1887,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Serov_devochka_s_persikami.jpg/800px-Serov_devochka_s_persikami.jpg",
+  },
+
+  {
+    name: "Barge Haulers on the Volga",
+    artist: "Ilya Repin",
+    year: 1873,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg/1920px-Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg",
+  },
 ];
 
 // English Victorian art movement list
@@ -18,7 +32,21 @@ const englishVictorianList = [
     year: 1883,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Frith_A_Private_View.jpg/1280px-Frith_A_Private_View.jpg",
   },
-]
+
+  {
+    name: "Saved",
+    artist: "Edwin Landseer",
+    year: 1856,
+    link: "https://upload.wikimedia.org/wikipedia/commons/d/da/Landseer_Saved.jpg",
+  },
+
+  {
+    name: "The Roses of Heliogabalus",
+    artist: "Lawrence Alma-Tadema",
+    year: 1888,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/The_Roses_of_Heliogabalus.jpg/1280px-The_Roses_of_Heliogabalus.jpg",
+  },
+];
 
 // American Hudson River School art movement list
 const americanHudsonRiverSchoolList = [
@@ -27,6 +55,20 @@ const americanHudsonRiverSchoolList = [
     artist: "Thomas Cole",
     year: 1836,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg/1024px-Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg",
+  },
+
+  {
+    name: "Niagara Falls",
+    artist: "Frederic Edwin Church",
+    year: 1857,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Frederic_Edwin_Church_-_Niagara_Falls_-_WGA04867.jpg/1920px-Frederic_Edwin_Church_-_Niagara_Falls_-_WGA04867.jpg",
+  },
+
+  {
+    name: "Among the Sierra Nevada, California",
+    artist: "Albert Bierstadt",
+    year: 1868,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg/1280px-Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg",
   },
 ]
 
