@@ -43,7 +43,7 @@ const russianPeredvizhnikiList = [
   },
 ];
 
-const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => {
+const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
   <View>
     <Image
       source={{uri: item.link}}
@@ -52,7 +52,7 @@ const Item = ({item}: {item: {name: string, artist: string, year: number, link: 
     <Text>{item.name}</Text>
     <Text>{item.artist}, {item.year}</Text>
   </View>
-}
+)
 
 export default function HomeScreen() {
   return (
@@ -66,8 +66,8 @@ export default function HomeScreen() {
       <ScrollView>
         <View>
           <FlatList
-            data={movieList}
-            renderItem={({item}) => <Text>{item.name}</Text>}
+            data={russianPeredvizhnikiList}
+            renderItem={({item}) => <Item item={item}/>}
           />
         </View>
       </ScrollView>
