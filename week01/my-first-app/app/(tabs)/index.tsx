@@ -75,7 +75,7 @@ const americanHudsonRiverSchoolList = [
 // Item used for all items produced by FlatList on homepage
 // Depicts an image, with name of artwork below, then below that artists and year produced
 const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
-  <View>
+  <View style={styles.item}>
     <Image
       source={{uri: item.link}}
       style={styles.image}
@@ -149,5 +149,10 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+
+  item: {
+    alignItems: 'center',
   }
 });
