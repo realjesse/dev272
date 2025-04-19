@@ -9,6 +9,24 @@ const russianPeredvizhnikiList = [
   },
 ];
 
+const englishVictorianList = [
+  {
+    name: "A Private View at the Royal Academy",
+    artist: "William Powell Frith",
+    year: 1883,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Frith_A_Private_View.jpg/1280px-Frith_A_Private_View.jpg",
+  },
+]
+
+const americanHudsonRiverSchoolList = [
+  {
+    name: "The Oxbow",
+    artist: "Thomas Cole",
+    year: 1836,
+    link: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg/1024px-Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg",
+  },
+]
+
 const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
   <View>
     <Image
