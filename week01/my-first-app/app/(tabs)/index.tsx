@@ -95,18 +95,21 @@ export default function HomeScreen() {
           onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
+        <Text style={styles.header}>Russian Peredvizhnik Movement</Text>
         <View>
           <FlatList
             data={russianPeredvizhnikiList}
             renderItem={({item}) => <Item item={item}/>}
           />
         </View>
+        <Text style={styles.header}>English Victorian Movement</Text>
         <View>
           <FlatList
             data={englishVictorianList}
             renderItem={({item}) => <Item item={item}/>}
           />
         </View>
+        <Text style={styles.header}>American Hudson River School Movement</Text>
         <View>
           <FlatList
             data={americanHudsonRiverSchoolList}
@@ -141,5 +144,10 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100
+  },
+
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
   }
 });
