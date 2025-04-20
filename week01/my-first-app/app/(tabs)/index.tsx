@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
 
-// Russian Peredvizhniki art movement list
-const russianPeredvizhnikiList = [
+// Complete art list
+const artList = [
   {
     name: "Portrait of an Unknown Woman",
     artist: "Ivan Kramskoi",
@@ -22,10 +22,7 @@ const russianPeredvizhnikiList = [
     year: 1873,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg/1920px-Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg",
   },
-];
 
-// English Victorian art movement list
-const englishVictorianList = [
   {
     name: "A Private View at the Royal Academy",
     artist: "William Powell Frith",
@@ -46,10 +43,7 @@ const englishVictorianList = [
     year: 1888,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/The_Roses_of_Heliogabalus.jpg/1280px-The_Roses_of_Heliogabalus.jpg",
   },
-];
 
-// American Hudson River School art movement list
-const americanHudsonRiverSchoolList = [
   {
     name: "The Oxbow",
     artist: "Thomas Cole",
@@ -70,7 +64,7 @@ const americanHudsonRiverSchoolList = [
     year: 1868,
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg/1280px-Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg",
   },
-]
+];
 
 // Item used for all items produced by FlatList on homepage
 // Depicts an image, with name of artwork below, then below that artists and year produced
@@ -95,24 +89,9 @@ export default function HomeScreen() {
           onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
-        <Text style={styles.header}>Russian Peredvizhniki Movement</Text>
         <View>
           <FlatList
-            data={russianPeredvizhnikiList}
-            renderItem={({item}) => <Item item={item}/>}
-          />
-        </View>
-        <Text style={styles.header}>English Victorian Movement</Text>
-        <View>
-          <FlatList
-            data={englishVictorianList}
-            renderItem={({item}) => <Item item={item}/>}
-          />
-        </View>
-        <Text style={styles.header}>American Hudson River School Movement</Text>
-        <View>
-          <FlatList
-            data={americanHudsonRiverSchoolList}
+            data={artList}
             renderItem={({item}) => <Item item={item}/>}
           />
         </View>
