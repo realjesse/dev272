@@ -125,12 +125,6 @@ const styles = StyleSheet.create({
     height: 200,
   },
 
-  header: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-
   item: {
     alignItems: 'center',
   }
