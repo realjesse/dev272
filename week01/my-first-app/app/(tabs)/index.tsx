@@ -1,4 +1,5 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
+import React, { useState } from 'react';
 
 // Complete art list
 const artList = [
@@ -65,6 +66,10 @@ const artList = [
     link: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg/1280px-Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg",
   },
 ];
+
+// useStates for the text query and data list
+const [query, setQuery] = useState('');
+const [filteredArtList, setFilteredArtList] = useState(artList);
 
 // Item used for all items produced by FlatList on homepage
 // Depicts an image, with name of artwork below, then below that artists and year produced
