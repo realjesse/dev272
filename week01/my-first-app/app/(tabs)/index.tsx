@@ -67,41 +67,42 @@ const artList = [
   },
 ];
 
-// useStates for the text query and data list
-const [query, setQuery] = useState('');
-const [filteredArtList, setFilteredArtList] = useState(artList);
-
-// Handles text query, if text is included in either the name, artist, or year
-// then the rendered list will update with proper items.  This will update with
-// each keystroke.
-const handleTextQuery = (text: string) => {
-  setQuery(text);
-
-  // Filter whole list to find item by the name, artist, or year
-  const filtered = artList.filter((item) => {
-    item.name.toLowerCase().includes(text.toLowerCase()) ||
-    item.artist.toLowerCase().includes(text.toLowerCase()) ||
-    item.year === Number(text);
-  });
-
-  // Update rendered list with filtered data
-  setFilteredArtList(filtered);
-}
-
-// Item used for all items produced by FlatList on homepage
-// Depicts an image, with name of artwork below, then below that artists and year produced
-const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
-  <View style={styles.item}>
-    <Image
-      source={{uri: item.link}}
-      style={styles.image}
-    />
-    <Text>{item.name}</Text>
-    <Text>{item.artist}, {item.year}</Text>
-  </View>
-)
-
 export default function HomeScreen() {
+
+  // useStates for the text query and data list
+  const [query, setQuery] = useState('');
+  const [filteredArtList, setFilteredArtList] = useState(artList);
+
+  // Handles text query, if text is included in either the name, artist, or year
+  // then the rendered list will update with proper items.  This will update with
+  // each keystroke.
+  const handleTextQuery = (text: string) => {
+    setQuery(text);
+
+    // Filter whole list to find item by the name, artist, or year
+    const filtered = artList.filter((item) => {
+      item.name.toLowerCase().includes(text.toLowerCase()) ||
+      item.artist.toLowerCase().includes(text.toLowerCase()) ||
+      item.year === Number(text);
+    });
+
+    // Update rendered list with filtered data
+    setFilteredArtList(filtered);
+  }
+
+  // Item used for all items produced by FlatList on homepage
+  // Depicts an image, with name of artwork below, then below that artists and year produced
+  const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
+    <View style={styles.item}>
+      <Image
+        source={{uri: item.link}}
+        style={styles.image}
+      />
+      <Text>{item.name}</Text>
+      <Text>{item.artist}, {item.year}</Text>
+    </View>
+  )
+
   return (
     <View style={styles.container}>
       <View style={styles.textEntryContainer}>
