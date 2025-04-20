@@ -80,11 +80,11 @@ export default function HomeScreen() {
     setQuery(text);
 
     // Filter whole list to find item by the name, artist, or year
-    const filtered = artList.filter((item) => {
+    const filtered = artList.filter((item) => 
       item.name.toLowerCase().includes(text.toLowerCase()) ||
       item.artist.toLowerCase().includes(text.toLowerCase()) ||
-      item.year === Number(text);
-    });
+      item.year === Number(text)
+    );
 
     // Update rendered list with filtered data
     setFilteredArtList(filtered);
@@ -119,7 +119,7 @@ export default function HomeScreen() {
       <ScrollView>
         <View>
           <FlatList
-            data={artList}
+            data={filteredArtList}
             renderItem={({item}) => <Item item={item}/>}
           />
         </View>
