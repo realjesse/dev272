@@ -112,9 +112,6 @@ export default function HomeScreen() {
           value={query}
           onChangeText={handleTextQuery}
         />
-        <Button
-          title="test"
-          onPress={() => console.log("button pressed")}/>
       </View>
       <ScrollView>
         <View>
