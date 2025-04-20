@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    height: 50,
-    width: 200,
+    height: 45,
+    width: 300,
     padding: 10,
     borderWidth: 1,
     borderRadius: 10
@@ -141,7 +141,6 @@ const styles = StyleSheet.create({
   textEntryContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 15,
     margin: 10,
   },
 
