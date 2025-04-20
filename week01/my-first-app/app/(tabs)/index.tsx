@@ -1,6 +1,9 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
 import React, { useState } from 'react';
 
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
+
 // Complete art list
 const artList = [
   {
@@ -93,35 +96,35 @@ export default function HomeScreen() {
   // Item used for all items produced by FlatList on homepage
   // Depicts an image, with name of artwork below, then below that artists and year produced
   const Item = ({item}: {item: {name: string, artist: string, year: number, link: string}}) => (
-    <View style={styles.item}>
+    <ThemedView style={styles.item}>
       <Image
         source={{uri: item.link}}
         style={styles.image}
       />
-      <Text>{item.name}</Text>
-      <Text>{item.artist}, {item.year}</Text>
-    </View>
+      <ThemedText>{item.name}</ThemedText>
+      <ThemedText>{item.artist}, {item.year}</ThemedText>
+    </ThemedView>
   )
 
   return (
-    <View style={styles.container}>
-      <View style={styles.textEntryContainer}>
+    <ThemedView style={styles.container}>
+      <ThemedView style={styles.textEntryContainer}>
         <TextInput 
           style={styles.input}
           placeholder="Search by painting, artist, or year"
           value={query}
           onChangeText={handleTextQuery}
         />
-      </View>
+      </ThemedView>
       <ScrollView>
-        <View>
+        <ThemedView>
           <FlatList
             data={filteredArtList}
             renderItem={({item}) => <Item item={item}/>}
           />
-        </View>
+        </ThemedView>
       </ScrollView>
-    </View>
+    </ThemedView>
   );
 }
 
@@ -145,8 +148,8 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
   },
 
   item: {
