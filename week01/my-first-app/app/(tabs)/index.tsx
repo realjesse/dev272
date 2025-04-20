@@ -81,7 +81,7 @@ const handleTextQuery = (text: string) => {
   const filtered = artList.filter((item) => {
     item.name.toLowerCase().includes(text.toLowerCase()) ||
     item.artist.toLowerCase().includes(text.toLowerCase()) ||
-    item.year === Number(item);
+    item.year === Number(text);
   });
 
   // Update rendered list with filtered data
@@ -105,7 +105,12 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.textEntryContainer}>
-        <TextInput style={styles.input}></TextInput>
+        <TextInput 
+          style={styles.input}
+          placeholder="Search by painting, artist, or year"
+          value={query}
+          onChangeText={handleTextQuery}
+        />
         <Button
           title="test"
           onPress={() => console.log("button pressed")}/>
