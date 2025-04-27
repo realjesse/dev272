@@ -117,14 +117,10 @@ export default function HomeScreen() {
           onChangeText={handleTextQuery}
         />
       </Input>
-      <ScrollView>
-        <ThemedView>
-          <FlatList
-            data={filteredArtList}
-            renderItem={({item}) => <Item item={item}/>}
-          />
-        </ThemedView>
-      </ScrollView>
+      <FlatList
+        data={filteredArtList}
+        renderItem={({item}) => <Item item={item}/>}
+      />
     </Box>
   );
 }
