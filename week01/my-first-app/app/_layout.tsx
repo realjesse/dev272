@@ -45,13 +45,13 @@ export default function RootLayout() {
 
   return (
     <GluestackUIProvider mode={colorMode}>
-      <ThemeProvider value={DefaultTheme}>
+      <ThemeContext.Provider value={{colorMode, toggleColorMode}}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
-      </ThemeProvider>
+      </ThemeContext.Provider>
     </GluestackUIProvider>
   );
 }
