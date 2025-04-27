@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Box } from '@/components/ui/box';
 
 // Complete art list
 const artList = [
@@ -107,7 +108,7 @@ export default function HomeScreen() {
   )
 
   return (
-    <ThemedView style={styles.container}>
+    <Box>
       <ThemedView style={styles.textEntryContainer}>
         <TextInput 
           style={styles.input}
@@ -124,7 +125,7 @@ export default function HomeScreen() {
           />
         </ThemedView>
       </ScrollView>
-    </ThemedView>
+    </Box>
   );
 }
 
