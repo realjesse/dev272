@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Box } from '@/components/ui/box';
 import { Input, InputField } from '@/components/ui/input';
+import { Heading } from '@/components/ui/heading';
 
 // Complete art list
 const artList = [
@@ -110,6 +111,7 @@ export default function HomeScreen() {
 
   return (
     <Box className='flex-1 p-4'>
+      <Heading size='xl' className='self-center'>Search For A Painting!</Heading>
       <Input variant='outline' size='lg' className='bg-white dark:bg-zinc-900 mt-2'>
         <InputField
           placeholder="Search by painting, artist, or year"
