@@ -109,8 +109,8 @@ export default function HomeScreen() {
   )
 
   return (
-    <Box>
-      <Input>
+    <Box className='flex-1 p-4'>
+      <Input variant='outline' size='lg' className='bg-white dark:bg-zinc-900 mt-2'>
         <InputField
           placeholder="Search by painting, artist, or year"
           value={query}
