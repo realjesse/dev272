@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { Box } from '@/components/ui/box';
+import { Input, InputField } from '@/components/ui/input';
 
 // Complete art list
 const artList = [
@@ -109,14 +110,13 @@ export default function HomeScreen() {
 
   return (
     <Box>
-      <ThemedView style={styles.textEntryContainer}>
-        <TextInput 
-          style={styles.input}
+      <Input>
+        <InputField
           placeholder="Search by painting, artist, or year"
           value={query}
           onChangeText={handleTextQuery}
         />
-      </ThemedView>
+      </Input>
       <ScrollView>
         <ThemedView>
           <FlatList
