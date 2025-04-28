@@ -10,7 +10,7 @@ export default function DetailsScreen() {
     return (
         <Box className="flex-1 p-4">
             <Heading size="xl" className="self-center">Dynamic Page: {title}</Heading>
-            <Button onPress={() => router.back()}>Back</Button>
+            {/* <Button onPress={() => router.back()}>Back</Button> */}
         </Box>
     )
 }

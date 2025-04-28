@@ -109,13 +109,13 @@ export default function HomeScreen() {
 
   // Item used for all items produced by FlatList on homepage
   // Depicts an image, with name of artwork below, then below that artists and year produced
-  const Item = ({item}: {item: {name: string, artist: string, year: number, wikipediaLink: string}}) => {
+  const Item = ({item}: {item: {name: string, artist: string, year: number, wikipediaLink: string, internalLink: string}}) => {
     
     // Handles pressing on link
     const handleLinkPress = () => {
       router.push({
         pathname: '/(tabs)/(home)/[title]',
-        params: { title: link }
+        params: { title: item.internalLink }
       })
     } 
 
