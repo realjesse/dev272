@@ -9,6 +9,7 @@ import { Heading } from '@/components/ui/heading';
 import { Link, LinkText } from '@/components/ui/link';
 import { router } from 'expo-router';
 import paintingsList from '../../../data/paintings.json'
+import Card from '@/components/card'
 
 export default function HomeScreen() {
 
@@ -33,33 +34,6 @@ export default function HomeScreen() {
     setFilteredArtList(filtered);
   }
 
-  // Item used for all items produced by FlatList on homepage
-  // Depicts an image, with name of artwork below, then below that artists and year produced
-  const Item = ({item}: {item: {name: string, artist: string, year: number, wikipediaLink: string, internalLink: string}}) => {
-    
-    // Handles pressing on link
-    const handleLinkPress = () => {
-      router.push({
-        pathname: '/(tabs)/(home)/[title]',
-        params: { title: item.internalLink }
-      })
-    } 
-
-    return (
-      <ThemedView style={styles.item}>
-        <Image
-          source={{uri: item.wikipediaLink}}
-          style={styles.image}
-        />
-        <ThemedText>{item.name}</ThemedText>
-        <ThemedText>{item.artist}, {item.year}</ThemedText>
-        <Link
-          onPress={handleLinkPress}>
-          <LinkText>See Details</LinkText>
-        </Link>
-      </ThemedView>
-  )}
-
   return (
     <Box className='flex-1 p-4'>
       <Heading size='xl' className='self-center'>Search For A Painting!</Heading>
@@ -72,7 +46,7 @@ export default function HomeScreen() {
       </Input>
       <FlatList
         data={filteredArtList}
-        renderItem={({item}) => <Item item={item}/>}
+        renderItem={({item}) => (<Card{...item}/>)}
       />
     </Box>
   );
