@@ -16,6 +16,7 @@ const artList = [
     artist: "Ivan Kramskoi",
     year: 1883,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Kramskoy_Portrait_of_a_Woman.jpg/1024px-Kramskoy_Portrait_of_a_Woman.jpg",
+    internalLink: "portrait_of_an_unkown_woman",
   },
 
   {
@@ -23,6 +24,7 @@ const artList = [
     artist: "Valentin Serov",
     year: 1887,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Serov_devochka_s_persikami.jpg/800px-Serov_devochka_s_persikami.jpg",
+    internalLink: "girl_with_peaches",
   },
 
   {
@@ -30,6 +32,7 @@ const artList = [
     artist: "Ilya Repin",
     year: 1873,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg/1920px-Ilia_Efimovich_Repin_%281844-1930%29_-_Volga_Boatmen_%281870-1873%29.jpg",
+    internalLink: "barge_haulers_on_the_volga",
   },
 
   {
@@ -37,6 +40,7 @@ const artList = [
     artist: "William Powell Frith",
     year: 1883,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Frith_A_Private_View.jpg/1280px-Frith_A_Private_View.jpg",
+    internalLink: "a_private_view_at_the_royal_academy",
   },
 
   {
@@ -44,6 +48,7 @@ const artList = [
     artist: "Edwin Landseer",
     year: 1856,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/d/da/Landseer_Saved.jpg",
+    internalLink: "saved",
   },
 
   {
@@ -51,6 +56,7 @@ const artList = [
     artist: "Lawrence Alma-Tadema",
     year: 1888,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/The_Roses_of_Heliogabalus.jpg/1280px-The_Roses_of_Heliogabalus.jpg",
+    internalLink: "the_roses_of_heliogabalus",
   },
 
   {
@@ -58,6 +64,7 @@ const artList = [
     artist: "Thomas Cole",
     year: 1836,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg/1024px-Cole_Thomas_The_Oxbow_%28The_Connecticut_River_near_Northampton_1836%29.jpg",
+    internalLink: "the_oxbow",
   },
 
   {
@@ -65,6 +72,7 @@ const artList = [
     artist: "Frederic Edwin Church",
     year: 1857,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Frederic_Edwin_Church_-_Niagara_Falls_-_WGA04867.jpg/1920px-Frederic_Edwin_Church_-_Niagara_Falls_-_WGA04867.jpg",
+    internalLink: "niagara_falls",
   },
 
   {
@@ -72,6 +80,7 @@ const artList = [
     artist: "Albert Bierstadt",
     year: 1868,
     wikipediaLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg/1280px-Albert_Bierstadt_-_Among_the_Sierra_Nevada%2C_California_-_Google_Art_Project.jpg",
+    internalLink: "among_the_sierra_nevada_california",
   },
 ];
 
