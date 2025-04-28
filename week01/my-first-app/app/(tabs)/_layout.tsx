@@ -35,7 +35,9 @@ export default function TabLayout() {
           title: 'Home',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
           headerRight: () => (
-            <Button onPress={toggleColorMode}>
+            <Button
+              title="Toggle Color Mode" 
+              onPress={toggleColorMode}>
               <ButtonText>Light</ButtonText>
             </Button>
           )
