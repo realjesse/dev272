@@ -24,7 +24,7 @@ export default function HomeScreen() {
     setQuery(text);
 
     // Filter whole list to find item by the name, artist, or year
-    const filtered = artList.filter((item) => 
+    const filtered = paintingsList.filter((item) => 
       item.name.toLowerCase().includes(text.toLowerCase()) ||
       item.artist.toLowerCase().includes(text.toLowerCase()) ||
       item.year === Number(text)
@@ -51,32 +51,3 @@ export default function HomeScreen() {
     </Box>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-
-  input: {
-    height: 45,
-    width: 300,
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 10
-  },
-
-  textEntryContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    margin: 10,
-  },
-
-  image: {
-    width: 300,
-    height: 300,
-  },
-
-  item: {
-    alignItems: 'center',
-  }
-});

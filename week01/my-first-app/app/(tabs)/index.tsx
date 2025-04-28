@@ -26,7 +26,7 @@ export default function HomeScreen() {
     setQuery(text);
 
     // Filter whole list to find item by the name, artist, or year
-    const filtered = artList.filter((item) => 
+    const filtered = paintingsList.filter((item) => 
       item.name.toLowerCase().includes(text.toLowerCase()) ||
       item.artist.toLowerCase().includes(text.toLowerCase()) ||
       item.year === Number(text)
