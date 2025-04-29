@@ -28,9 +28,10 @@ const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internal
       }
 
     return (
-        <ThemedView>
+        <ThemedView style={styles.item}>
             <Image 
                 source={{uri: wikipediaLink}}
+                style={styles.image}
             />
             <ThemedText>{name}</ThemedText>
             <ThemedText>{artist}</ThemedText>
