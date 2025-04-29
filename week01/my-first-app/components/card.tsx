@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internal
                 style={styles.image}
             />
             <ThemedText>{name}</ThemedText>
-            <ThemedText>{artist}</ThemedText>
+            <ThemedText>{artist}, {year}</ThemedText>
             <Link
                 onPress={handleLinkPress}
             >
