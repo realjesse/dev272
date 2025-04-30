@@ -9,7 +9,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Box } from '@/components/ui/box';
 import { Heading } from '@/components/ui/heading';
 
-export default function TabTwoScreen() {
+export default function Favorites() {
   return (
     <Box>
       <Heading size="4xl" className="self-center">Favorites</Heading>
