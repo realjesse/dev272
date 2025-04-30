@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internal
         router.push({
             pathname: '/(tabs)/(home)/[title]',
             params: { 
-              internalLink: internalLink,
+              title: internalLink,
               wikipediaLink: wikipediaLink,
               name: name,
               artist: artist,
