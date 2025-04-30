@@ -23,9 +23,15 @@ const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internal
       const handleLinkPress = () => {
         router.push({
             pathname: '/(tabs)/(home)/[title]',
-            params: { title: internalLink },
-        })
-      }
+            params: { 
+              internalLink: internalLink,
+              wikipediaLink: wikipediaLink,
+              name: name,
+              artist: artist,
+              year: year,
+            },
+        });
+      };
 
     return (
         <ThemedView style={styles.item}>
