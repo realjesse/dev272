@@ -46,6 +46,11 @@ export default function TabLayout() {
         options={{
           title: 'Favorites',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          headerRight: () => (
+            <Button onPress={toggleColorMode}>
+              <ButtonText>Toggle Theme</ButtonText>
+            </Button>
+          ),
         }}
       />
     </Tabs>
