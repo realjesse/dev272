@@ -5,6 +5,7 @@ import { Text } from "@/components/ui/text";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { Button, SafeAreaView } from "react-native";
 import { ButtonText, Button as GlueButton } from "@/components/ui/button"; 
+import { VStack } from "@/components/ui/vstack";
 
 export default function DetailsScreen() {
     const router = useRouter();
@@ -24,18 +25,20 @@ export default function DetailsScreen() {
                         title: name,
                     }}
                 />
-                <Image
-                    size="2xl"
-                    source={{uri: wikipediaLink}}
-                    alt="image of painting"
-                    className="self-center"
-                />
-                <Heading size="xl" className="self-center">{name}</Heading>
-                <Text className="self-center" size="xl">{artist}, {year}</Text>
-                <GlueButton>
-                    <ButtonText>Add To Favorites</ButtonText>
-                </GlueButton>
-                <Button title="Go Back" onPress={() => router.back()}/>
+                <VStack space="md" className="mt-4">
+                    <Image
+                        size="2xl"
+                        source={{uri: wikipediaLink}}
+                        alt="image of painting"
+                        className="self-center"
+                    />
+                    <Heading size="xl" className="self-center">{name}</Heading>
+                    <Text className="self-center" size="xl">{artist}, {year}</Text>
+                    <GlueButton>
+                        <ButtonText>Add To Favorites</ButtonText>
+                    </GlueButton>
+                    <Button title="Go Back" onPress={() => router.back()}/>
+                </VStack>
             </Box>
         </SafeAreaView>
     )
