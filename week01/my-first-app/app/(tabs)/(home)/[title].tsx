@@ -37,7 +37,9 @@ export default function DetailsScreen() {
                     <GlueButton>
                         <ButtonText>Add To Favorites</ButtonText>
                     </GlueButton>
-                    <Button title="Go Back" onPress={() => router.back()}/>
+                    <GlueButton onPress={() => router.back()}>
+                        <ButtonText>Go Back</ButtonText>
+                    </GlueButton>
                 </VStack>
             </Box>
         </SafeAreaView>
