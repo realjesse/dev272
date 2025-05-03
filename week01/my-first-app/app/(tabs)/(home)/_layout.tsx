@@ -21,7 +21,13 @@ export default function HomeLayout() {
                             size='xl'
                         />
                     </Pressable>
-                )
+                ),
+                headerStyle: {
+                    backgroundColor: colorMode === 'light' ? '#fff' : '#27272a',
+                },
+                headerTitleStyle: {
+                    color: colorMode === 'light' ? '#000' : '#fff',
+                }
             }}>
                 <Stack.Screen name="index" options={{ title: "Home"}} />
                 <Stack.Screen name="[title]" options={{ title: "Details"}} />
