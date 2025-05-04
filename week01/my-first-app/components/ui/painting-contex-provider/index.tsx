@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-
+import paintingData from '@/data/paintings.json';
 
 export type Painting = {
     id: string;
@@ -20,7 +20,7 @@ type PaintingContextType = {
 const PaintingContext = createContext<PaintingContextType | undefined>(undefined);
 
 export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [paintings, setPaintings] = useState<Painting[]>([]);
+    const [paintings, setPaintings] = useState<Painting[]>(paintingData as Painting[]);
 
     const addPainting = (painting: Painting) => {
         setPaintings((prev) => [...prev, painting]);
