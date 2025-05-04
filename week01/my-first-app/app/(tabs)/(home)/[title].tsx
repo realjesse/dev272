@@ -9,8 +9,8 @@ import { VStack } from "@/components/ui/vstack";
 
 export default function DetailsScreen() {
     const router = useRouter();
-    const { internalLink, wikipediaLink, name, artist, year } = useLocalSearchParams<{
-        internalLink: string;
+    const { id, wikipediaLink, name, artist, year } = useLocalSearchParams<{
+        id: string;
         wikipediaLink: string;
         name: string;
         artist: string;

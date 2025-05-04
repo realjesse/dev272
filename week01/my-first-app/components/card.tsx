@@ -11,10 +11,10 @@ interface CardProps {
     artist: string;
     year: number;
     wikipediaLink: string;
-    internalLink: string;
+    id: string;
 }
 
-const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internalLink }) => {
+const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, id }) => {
       const backgroundColor = useThemeColor({}, 'background');
       const color = useThemeColor({}, 'text');
 
@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, internal
         router.push({
             pathname: '/(tabs)/(home)/[title]',
             params: { 
-              title: internalLink,
+              title: id,
               wikipediaLink: wikipediaLink,
               name: name,
               artist: artist,
