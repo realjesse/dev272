@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { createContext, useEffect, useState } from 'react';
 import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { PaintingProvider } from '@/components/ui/painting-contex-provider';
 
 type ThemeContextType = {
   colorMode: ModeType;
@@ -46,10 +47,12 @@ export default function RootLayout() {
   return (
     <GluestackUIProvider mode={colorMode}>
       <ThemeContext.Provider value={{colorMode, toggleColorMode}}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+        <PaintingProvider>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+        </PaintingProvider>
         <StatusBar style="auto" />
       </ThemeContext.Provider>
     </GluestackUIProvider>
