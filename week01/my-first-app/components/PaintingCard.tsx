@@ -1,22 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { Image } from '@/components/ui/image';
 import { Link, LinkText } from './ui/link';
 import { useRouter } from 'expo-router';
-import { ThemedText } from './ThemedText';
-import { ThemedView } from './ThemedView';
+import { Pressable } from './ui/pressable';
+import { FavouriteIcon, Icon } from './ui/icon/index';
+import { Painting, usePaintingContext } from './ui/painting-contex-provider';
+import { Card } from './ui/card';
+import { Text } from '@/components/ui/text';
 
-interface CardProps {
-    name: string;
-    artist: string;
-    year: number;
-    wikipediaLink: string;
-    id: string;
-}
 
-const PaintingCard: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, id }) => {
-      const backgroundColor = useThemeColor({}, 'background');
-      const color = useThemeColor({}, 'text');
+const PaintingCard: React.FC<Painting> = ({ name, artist, year, wikipediaLink, id, isFavorite }: Painting) => {
+  const { toggleFavorite } = usePaintingContext();
 
       const router = useRouter();
 
@@ -34,49 +28,32 @@ const PaintingCard: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, 
       };
 
     return (
-        <ThemedView style={styles.item}>
-            <Image 
-                source={{uri: wikipediaLink}}
-                style={styles.image}
+      <>
+        <Card variant="filled" className="mt-4 items-center">
+          <Image 
+              source={{uri: wikipediaLink}}
+              size='2xl'
+              alt='image of painting'
+          />
+          <Text>{name}</Text>
+          <Text>{artist}, {year}</Text>
+          <Link
+              onPress={handleLinkPress}
+          >
+              <LinkText>See Details</LinkText>
+          </Link>
+          <Pressable
+            onPress={() => toggleFavorite(id)}
+          >
+            <Icon
+              as={FavouriteIcon}
+              size="xl"
+              className={`${isFavorite ? 'text-red-500' : 'text-gray-500'}`}
             />
-            <ThemedText>{name}</ThemedText>
-            <ThemedText>{artist}, {year}</ThemedText>
-            <Link
-                onPress={handleLinkPress}
-            >
-                <LinkText>See Details</LinkText>
-            </Link>
-        </ThemedView>
+          </Pressable>
+        </Card>
+      </>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-      },
-    
-      input: {
-        height: 45,
-        width: 300,
-        padding: 10,
-        borderWidth: 1,
-        borderRadius: 10
-      },
-    
-      textEntryContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        margin: 10,
-      },
-    
-      image: {
-        width: 300,
-        height: 300,
-      },
-    
-      item: {
-        alignItems: 'center',
-      }
-});
 
 export default PaintingCard;
