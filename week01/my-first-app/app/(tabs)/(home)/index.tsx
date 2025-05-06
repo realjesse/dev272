@@ -8,7 +8,7 @@ import { Input, InputField } from '@/components/ui/input';
 import { Heading } from '@/components/ui/heading';
 import { Link, LinkText } from '@/components/ui/link';
 import { router } from 'expo-router';
-import Card from '@/components/card'
+import Card from '@/components/PaintingCard'
 import { usePaintingContext } from '@/components/ui/painting-contex-provider';
 
 export default function HomeScreen() {

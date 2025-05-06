@@ -14,7 +14,7 @@ interface CardProps {
     id: string;
 }
 
-const OldCard: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, id }) => {
+const PaintingCard: React.FC<CardProps> = ({ name, artist, year, wikipediaLink, id }) => {
       const backgroundColor = useThemeColor({}, 'background');
       const color = useThemeColor({}, 'text');
 
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
       }
 });
 
-export default OldCard;
+export default PaintingCard;
