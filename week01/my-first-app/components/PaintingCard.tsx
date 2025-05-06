@@ -35,12 +35,12 @@ const PaintingCard: React.FC<Painting> = ({ name, artist, year, wikipediaLink, i
               size='2xl'
               alt='image of painting'
           />
-          <Text>{name}</Text>
-          <Text>{artist}, {year}</Text>
+          <Text className='text-lg my-1 dark:text-white'>{name}</Text>
+          <Text className='text-lg my-1 dark:text-white'>{artist}, {year}</Text>
           <Link
               onPress={handleLinkPress}
           >
-              <LinkText>See Details</LinkText>
+              <LinkText className='text-blue-500 text-lg no-underline'>See Details</LinkText>
           </Link>
           <Pressable
             onPress={() => toggleFavorite(id)}

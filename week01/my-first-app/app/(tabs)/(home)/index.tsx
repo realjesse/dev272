@@ -37,9 +37,13 @@ export default function HomeScreen() {
 
   // View favorite changes
   useEffect(() => {
-    const favorites = paintings.filter((item) => item.isFavorite);
-    if (favorites.length > 0) {
-      console.log('Favorite paintings:', favorites);
+    if (query === '') {
+      setFilteredArtList(paintings);
+    } else {
+      const filtered = paintings.filter((item) => 
+        item.name.toLowerCase().includes(query.toLowerCase())
+      );
+      setFilteredArtList(filtered);
     }
   }, [paintings])
 
