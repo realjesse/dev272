@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Platform, View, Text, TextInput, Button, ScrollView, FlatList } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -34,6 +34,14 @@ export default function HomeScreen() {
     // Update rendered list with filtered data
     setFilteredArtList(filtered);
   }
+
+  // View favorite changes
+  useEffect(() => {
+    const favorites = paintings.filter((item) => item.isFavorite);
+    if (favorites.length > 0) {
+      console.log('Favorite paintings:', favorites);
+    }
+  }, [paintings])
 
   return (
     <Box className='flex-1 p-4'>
