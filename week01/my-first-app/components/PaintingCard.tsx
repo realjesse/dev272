@@ -31,7 +31,7 @@ const PaintingCard: React.FC<Painting> = ({ name, artist, year, wikipediaLink, i
       <>
         <Card variant="filled" className="mt-4 items-center">
           <Image 
-              source={{uri: wikipediaLink}}
+              source={{ uri: wikipediaLink || "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Shiba_inu_taiki.jpg/800px-Shiba_inu_taiki.jpg"}}
               size='2xl'
               alt='image of painting'
           />
