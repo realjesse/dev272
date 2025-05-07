@@ -30,7 +30,8 @@ const PaintingCard: React.FC<Painting> = ({ name, artist, year, wikipediaLink, i
     return (
       <>
         <Card variant="filled" className="mt-4 items-center">
-          <Image 
+          <Image
+              // if wikipediaLink is null then will display an image of a dog
               source={{ uri: wikipediaLink || "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Shiba_inu_taiki.jpg/800px-Shiba_inu_taiki.jpg"}}
               size='2xl'
               alt='image of painting'

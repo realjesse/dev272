@@ -37,7 +37,7 @@ const AddPainting = () => {
                         name: values.name,
                         artist: values.artist,
                         year: values.year,
-                        wikipediaLink: values.wikipediaLink || 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Shiba_inu_taiki.jpg/800px-Shiba_inu_taiki.jpg',
+                        wikipediaLink: values.wikipediaLink,
                     });
 
                     // Reset form

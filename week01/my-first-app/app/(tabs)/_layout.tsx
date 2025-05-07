@@ -16,7 +16,7 @@ import { EditIcon } from '@/components/ui/icon';
 export default function TabLayout() {
   const router = useRouter();
   const colorScheme = useColorScheme();
-  const { toggleColorMode } = useContext(ThemeContext);
+  const { colorMode } = useContext(ThemeContext);
 
   return (
     <Box className='flex-1'>
@@ -30,8 +30,11 @@ export default function TabLayout() {
             ios: {
                 // Use a transparent background on iOS to show the blur effect
               position: 'absolute',
+              backgroundColor: colorMode === 'light' ? '#fff' : '#27272a',
             },
-            default: {},
+            default: {
+              backgroundColor: colorMode === 'light' ? '#fff' : '#27272a',
+            },
           }),
         }}>
         <Tabs.Screen
@@ -39,23 +42,13 @@ export default function TabLayout() {
           options={{
             title: 'Home',
             tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-            headerRight: () => (
-              <Button onPress={toggleColorMode}>
-                <ButtonText>Toggle Theme</ButtonText>
-              </Button>
-            ),
           }}
         />
         <Tabs.Screen
           name="favorites"
           options={{
             title: 'Favorites',
-            tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-            headerRight: () => (
-              <Button onPress={toggleColorMode}>
-                <ButtonText>Toggle Theme</ButtonText>
-              </Button>
-            ),
+            tabBarIcon: ({ color }) => <IconSymbol size={28} name="heart.fill" color={color} />,
           }}
         />
       </Tabs>

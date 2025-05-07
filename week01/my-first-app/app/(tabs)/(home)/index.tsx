@@ -48,7 +48,7 @@ export default function HomeScreen() {
   }, [paintings])
 
   return (
-    <Box className='flex-1 p-4'>
+    <Box className='flex-1 p-4 bg-white dark:bg-zinc-900'>
       <Heading size='xl' className='self-center'>Search For A Painting!</Heading>
       <Input variant='outline' size='lg' className='bg-white dark:bg-zinc-900 mt-2'>
         <InputField
