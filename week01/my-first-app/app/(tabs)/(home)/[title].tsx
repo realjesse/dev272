@@ -4,7 +4,6 @@ import { Image } from "@/components/ui/image";
 import { Text } from "@/components/ui/text";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { Button, SafeAreaView } from "react-native";
-import { ButtonText, Button as GlueButton } from "@/components/ui/button"; 
 import { VStack } from "@/components/ui/vstack";
 
 export default function DetailsScreen() {
@@ -34,9 +33,6 @@ export default function DetailsScreen() {
                     />
                     <Heading size="xl" className="self-center">{name}</Heading>
                     <Text className="self-center" size="xl">{artist}, {year}</Text>
-                    <GlueButton>
-                        <ButtonText>Add To Favorites</ButtonText>
-                    </GlueButton>
                 </VStack>
             </Box>
         </SafeAreaView>
