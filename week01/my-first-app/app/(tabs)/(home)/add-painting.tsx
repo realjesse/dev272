@@ -97,7 +97,7 @@ const AddPainting = () => {
 
                         {/* Wikipedia Link Input */}
                         <Box className="mb-4">
-                            <Text size='lg' className='mb-2 text-stone-900 dark:text-white'>Wikipedia Link</Text>
+                            <Text size='lg' className='mb-2 text-stone-900 dark:text-white'>Image Link</Text>
                             <Input variant='outline' size='md' className='bg-white dark:bg-zinc-900 mt-2'>
                                 <InputField
                                     onChangeText={handleChange('wikipediaLink')}
