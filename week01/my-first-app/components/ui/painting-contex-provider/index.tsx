@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import paintingData from '@/data/paintings.json';
+import { useGetPaintings } from "@/hooks/useGetPaintings";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export type Painting = {
     id: string;
@@ -11,6 +11,7 @@ export type Painting = {
 }
 
 type PaintingContextType = {
+    isLoading: boolean;
     paintings: Painting[];
     addPainting: (paintings: Painting) => void;
     updatePainting: (id: string, updatedPainting: Partial<Painting>) => void;
@@ -20,7 +21,8 @@ type PaintingContextType = {
 const PaintingContext = createContext<PaintingContextType | undefined>(undefined);
 
 export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [paintings, setPaintings] = useState<Painting[]>(paintingData as Painting[]);
+    const {data, isFetching} = useGetPaintings();
+    const [paintings, setPaintings] = useState<Painting[]>([]);
 
     const addPainting = (painting: Painting) => {
         setPaintings((prev) => [...prev, painting]);
@@ -42,8 +44,18 @@ export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         );
     };
 
+    useEffect(() => {
+        if (data && !isFetching) {
+            console.log("Fetched data: ", data);
+            setPaintings(data as Painting[]);
+        }
+        if (isFetching) {
+            console.log("Fetching data...")
+        }
+    }, [data, isFetching])
+
     return (
-        <PaintingContext.Provider value={{ paintings, addPainting, updatePainting, toggleFavorite }}>
+        <PaintingContext.Provider value={{ isLoading: isFetching, paintings, addPainting, updatePainting, toggleFavorite }}>
             {children}
         </PaintingContext.Provider>
     )
