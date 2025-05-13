@@ -5,16 +5,19 @@ import { Text } from "@/components/ui/text";
 import { Stack, useLocalSearchParams, useRouter } from "expo-router";
 import { Button, SafeAreaView } from "react-native";
 import { VStack } from "@/components/ui/vstack";
+import { usePaintingContext } from "@/components/ui/painting-contex-provider";
 
 export default function DetailsScreen() {
     const router = useRouter();
-    const { id, wikipediaLink, name, artist, year } = useLocalSearchParams<{
-        id: string;
-        wikipediaLink: string;
-        name: string;
-        artist: string;
-        year: string;
-    }>()
+    const { title: id } = useLocalSearchParams<{title: string}>()
+    const { paintings } = usePaintingContext();
+    const painting = paintings.find((item) => item.id === id);
+    const {
+        name,
+        artist,
+        year,
+        wikipediaLink
+    } = painting || {};
 
     return (
         <SafeAreaView className='flex-1 bg-white dark:bg-zinc-700'>

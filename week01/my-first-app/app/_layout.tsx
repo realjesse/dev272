@@ -59,26 +59,26 @@ export default function RootLayout() {
   }
 
   // handle initial superbase auth
-  useEffect(() => {
-    const autoSignin = async () => {
-      if (isAuthenticated) {
-      return;
-      }
-      
-      const {data, error} = await supabase.auth.signInWithPassword({
-        email: "test@dev.com",
-        password: "testtest",
-      });
-      if (error) {
-        console.error("Error signing in:", error);
-      } else {
-        setIsAuthenticated(true);
-        console.log("Signed in user:", data);
-      }
-    }
+  // useEffect(() => {
+  //   const autoSignin = async () => {
+  //     if (isAuthenticated) {
+  //     return;
+  //     }
 
-    autoSignin();
-  }, [isAuthenticated])
+  //     const {data, error} = await supabase.auth.signInWithPassword({
+  //       email: "test@dev.com",
+  //       password: "testtest",
+  //     });
+  //     if (error) {
+  //       console.error("Error signing in:", error);
+  //     } else {
+  //       setIsAuthenticated(true);
+  //       console.log("Signed in user:", data);
+  //     }
+  //   }
+
+  //   autoSignin();
+  // }, [isAuthenticated])
 
   return (
     <QueryClientProvider client={queryClient}>

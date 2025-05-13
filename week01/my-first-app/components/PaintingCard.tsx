@@ -17,13 +17,7 @@ const PaintingCard: React.FC<Painting> = ({ name, artist, year, wikipediaLink, i
       const handleLinkPress = () => {
         router.push({
             pathname: '/(tabs)/(home)/[title]',
-            params: { 
-              title: id,
-              wikipediaLink: wikipediaLink,
-              name: name,
-              artist: artist,
-              year: year,
-            },
+            params: { title: id },
         });
       };
 
