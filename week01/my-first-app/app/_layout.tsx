@@ -60,11 +60,11 @@ export default function RootLayout() {
 
   // handle initial superbase auth
   useEffect(() => {
-    if (isAuthenticated) {
-      return;
-    }
-
     const autoSignin = async () => {
+      if (isAuthenticated) {
+      return;
+      }
+      
       const {data, error} = await supabase.auth.signInWithPassword({
         email: "test@dev.com",
         password: "testtest",
