@@ -20,6 +20,8 @@ const AddPainting = () => {
     const navigation = useNavigation();
     const { addPainting } = usePaintingContext();
 
+    // TODO: use hook
+
     return (
         <Box className="flex-1 p-4 dark:bg-neutral-950">
             <Formik
