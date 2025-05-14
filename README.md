@@ -17,3 +17,7 @@ QueryCleintProvider.  The useAddPainting and useGetPaintings hooks use the
 React-QueryProvider to function.  The painting context provider, in turn, uses
 the useGetPaintings to actually fetch the data from the remote server to use
 it.
+
+AsyncStorage Use
+
+Haven't implemented yet.
