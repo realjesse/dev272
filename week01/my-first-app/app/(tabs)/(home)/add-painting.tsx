@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input, InputField } from '@/components/ui/input';
 import { Button, ButtonText } from '@/components/ui/button';
+import { useAddPainting } from '@/hooks/useAddPainting';
 
 
 
@@ -18,7 +19,7 @@ const PaintingSchema = Yup.object().shape({
 
 const AddPainting = () => {
     const navigation = useNavigation();
-    const { addPainting } = usePaintingContext();
+    const addPainting = useAddPainting();
 
     // TODO: use hook
 
@@ -32,14 +33,15 @@ const AddPainting = () => {
                     wikipediaLink: '',
                 }}
                 validationSchema={PaintingSchema}
-                onSubmit={(values, { resetForm }) => {
+                onSubmit={async (values, { resetForm }) => {
                     // Add painting to the context
-                    addPainting({
-                        id: Date.now().toString(), // Generates unique ID
+                    await addPainting.mutate({
                         name: values.name,
                         artist: values.artist,
                         year: values.year,
                         wikipediaLink: values.wikipediaLink,
+                        isFavorite: false,
+                    }, {
                     });
 
                     // Reset form
