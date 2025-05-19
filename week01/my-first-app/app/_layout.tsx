@@ -50,6 +50,30 @@ export default function RootLayout() {
     }
   }, [loaded]);
 
+  // handle initial superbase auth
+  useEffect(() => {
+    const autoSignin = async () => {
+      if (isAuthenticated) {
+        console.log("user is already authenticated, skipping sign-in.");
+        return;
+      }
+
+      const {data, error} = await supabase.auth.signInWithPassword({
+        email: "test@dev.com",
+        password: "testtest",
+      });
+      
+      if (error) {
+        console.error("Error signing in:", error);
+      } else {
+        setIsAuthenticated(true);
+        console.log("Signed in user:", data);
+      }
+    }
+
+    autoSignin();
+  }, [isAuthenticated])
+
   if (!loaded) {
     return null;
   }
@@ -57,28 +81,6 @@ export default function RootLayout() {
   const toggleColorMode = async () => {
     setColorMode((prev) => (prev === "light" ? "dark" : "light"));
   }
-
-  // handle initial superbase auth
-  // useEffect(() => {
-  //   const autoSignin = async () => {
-  //     if (isAuthenticated) {
-  //     return;
-  //     }
-
-  //     const {data, error} = await supabase.auth.signInWithPassword({
-  //       email: "test@dev.com",
-  //       password: "testtest",
-  //     });
-  //     if (error) {
-  //       console.error("Error signing in:", error);
-  //     } else {
-  //       setIsAuthenticated(true);
-  //       console.log("Signed in user:", data);
-  //     }
-  //   }
-
-  //   autoSignin();
-  // }, [isAuthenticated])
 
   return (
     <QueryClientProvider client={queryClient}>
