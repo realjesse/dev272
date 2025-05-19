@@ -59,6 +59,7 @@ export default function HomeScreen() {
       </Input>
       <FlatList
         data={filteredArtList}
+        keyExtractor={(item) => item.id}
         renderItem={({item}) => (<PaintingCard{...item}/>)}
       />
     </Box>

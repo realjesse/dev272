@@ -13,6 +13,7 @@ export const useAddPainting = () => {
                 .from("paintings")
                 .insert(newPainting)
             if (error) {
+                console.log(error)
                 throw new Error(error.message)
             }
             return data

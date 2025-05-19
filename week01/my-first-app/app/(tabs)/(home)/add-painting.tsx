@@ -19,7 +19,7 @@ const PaintingSchema = Yup.object().shape({
 
 const AddPainting = () => {
     const navigation = useNavigation();
-    const addPainting = useAddPainting();
+    const { addPainting } = usePaintingContext();
 
     // TODO: use hook
 
@@ -33,15 +33,13 @@ const AddPainting = () => {
                     wikipediaLink: '',
                 }}
                 validationSchema={PaintingSchema}
-                onSubmit={async (values, { resetForm }) => {
-                    // Add painting to the context
-                    await addPainting.mutate({
+                onSubmit={(values, { resetForm }) => {
+                    console.log('Form submit:', values);
+                    addPainting({
                         name: values.name,
                         artist: values.artist,
                         year: values.year,
-                        wikipediaLink: values.wikipediaLink,
-                        isFavorite: false,
-                    }, {
+                        wikipediaLink: values.wikipediaLink
                     });
 
                     // Reset form
