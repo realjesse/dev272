@@ -2,15 +2,17 @@ import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import { Image } from "@/components/ui/image";
 import { Text } from "@/components/ui/text";
-import { Stack, useLocalSearchParams, useRouter } from "expo-router";
-import { Button, SafeAreaView } from "react-native";
+import { Stack, useLocalSearchParams, useNavigation, useRouter } from "expo-router";
+import { SafeAreaView } from "react-native";
 import { VStack } from "@/components/ui/vstack";
 import { usePaintingContext } from "@/components/ui/painting-contex-provider";
+import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
+import { TrashIcon } from "@/components/ui/icon";
 
 export default function DetailsScreen() {
-    const router = useRouter();
+    const navigation = useNavigation();
     const { title: id } = useLocalSearchParams<{title: string}>()
-    const { paintings } = usePaintingContext();
+    const { paintings, deletePainting } = usePaintingContext();
     const painting = paintings.find((item) => item.id === id);
     const {
         name,
@@ -18,6 +20,13 @@ export default function DetailsScreen() {
         year,
         wikipediaLink
     } = painting || {};
+
+    const handleDelete = () => {
+        if (painting) {
+            deletePainting(painting.id)
+            navigation.goBack();
+        }
+    };
 
     return (
         <SafeAreaView className='flex-1 bg-white dark:bg-zinc-700'>
@@ -37,6 +46,14 @@ export default function DetailsScreen() {
                     <Heading size="xl" className="self-center">{name}</Heading>
                     <Text className="self-center" size="xl">{artist}, {year}</Text>
                 </VStack>
+                <Button 
+                    size="lg" 
+                    action="negative"
+                    onPress={handleDelete}
+                >
+                    <ButtonIcon as={TrashIcon} />
+                    <ButtonText>Delete</ButtonText>
+                </Button>
             </Box>
         </SafeAreaView>
     )

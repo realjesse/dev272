@@ -1,4 +1,5 @@
 import { SupabaseNewPainting, useAddPainting } from "@/hooks/useAddPainting";
+import { useDeletePainting } from "@/hooks/useDeletePainting";
 import { useGetPaintings } from "@/hooks/useGetPaintings";
 import { createContext, useContext, useEffect, useState } from "react";
 
@@ -17,6 +18,7 @@ type PaintingContextType = {
     addPainting: (paintings: SupabaseNewPainting) => void;
     updatePainting: (id: string, updatedPainting: Partial<Painting>) => void;
     toggleFavorite: (id: string) => void;
+    deletePainting: (id: string) => void;
 }
 
 const PaintingContext = createContext<PaintingContextType | undefined>(undefined);
@@ -25,9 +27,14 @@ export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const {data, isFetching} = useGetPaintings();
     const [paintings, setPaintings] = useState<Painting[]>([]);
     const addPaintingMutation = useAddPainting();
+    const deletePaintingMutation = useDeletePainting();
 
     const addPainting = async (painting: SupabaseNewPainting) => {
         addPaintingMutation.mutate(painting);
+    };
+
+    const deletePainting = async (paintingId: Painting['id']) => {
+        deletePaintingMutation.mutate(paintingId);
     };
 
     const updatePainting = (id: string, updatedPainting: Partial<Painting>) => {
@@ -57,7 +64,15 @@ export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }, [data, isFetching])
 
     return (
-        <PaintingContext.Provider value={{ isLoading: isFetching || addPaintingMutation.isPending, paintings, addPainting, updatePainting, toggleFavorite }}>
+        <PaintingContext.Provider 
+            value={{ 
+                isLoading: isFetching || addPaintingMutation.isPending || deletePaintingMutation.isPending, 
+                paintings, 
+                addPainting, 
+                updatePainting, 
+                toggleFavorite, 
+                deletePainting 
+            }}>
             {children}
         </PaintingContext.Provider>
     )
