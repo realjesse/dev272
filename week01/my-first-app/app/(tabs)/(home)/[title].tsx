@@ -7,10 +7,11 @@ import { SafeAreaView } from "react-native";
 import { VStack } from "@/components/ui/vstack";
 import { usePaintingContext } from "@/components/ui/painting-contex-provider";
 import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
-import { TrashIcon } from "@/components/ui/icon";
+import { EditIcon, TrashIcon } from "@/components/ui/icon";
+import { HStack } from "@/components/ui/hstack";
 
 export default function DetailsScreen() {
-    const navigation = useNavigation();
+    const router = useRouter();
     const { title: id } = useLocalSearchParams<{title: string}>()
     const { paintings, deletePainting } = usePaintingContext();
     const painting = paintings.find((item) => item.id === id);
@@ -24,8 +25,15 @@ export default function DetailsScreen() {
     const handleDelete = () => {
         if (painting) {
             deletePainting(painting.id)
-            navigation.goBack();
+            router.back();
         }
+    };
+
+    const handleEdit = () => {
+        router.push({
+            pathname: '/add-painting',
+            params: { id },
+        })
     };
 
     return (
@@ -46,14 +54,24 @@ export default function DetailsScreen() {
                     <Heading size="xl" className="self-center">{name}</Heading>
                     <Text className="self-center" size="xl">{artist}, {year}</Text>
                 </VStack>
-                <Button 
-                    size="lg" 
-                    action="negative"
-                    onPress={handleDelete}
-                >
-                    <ButtonIcon as={TrashIcon} />
-                    <ButtonText>Delete</ButtonText>
-                </Button>
+                <HStack space="md" className="mt-4"> 
+                    <Button 
+                        size="lg" 
+                        action="negative"
+                        onPress={handleDelete}
+                        >
+                        <ButtonIcon as={TrashIcon} />
+                        <ButtonText>Delete</ButtonText>
+                    </Button>
+                    <Button 
+                        size="lg" 
+                        action="positive"
+                        onPress={handleEdit}
+                        >
+                        <ButtonIcon as={EditIcon} />
+                        <ButtonText>Edit</ButtonText>
+                    </Button>
+                </HStack>
             </Box>
         </SafeAreaView>
     )

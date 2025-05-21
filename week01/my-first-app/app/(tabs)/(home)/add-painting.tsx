@@ -1,14 +1,11 @@
 import { Box } from '@/components/ui/box';
 import { Text } from '@/components/ui/text';
 import { usePaintingContext } from '@/components/ui/painting-contex-provider';
-import { useNavigation } from 'expo-router';
+import { Stack, useLocalSearchParams, useNavigation } from 'expo-router';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input, InputField } from '@/components/ui/input';
 import { Button, ButtonText } from '@/components/ui/button';
-import { useAddPainting } from '@/hooks/useAddPainting';
-
-
 
 const PaintingSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -19,28 +16,55 @@ const PaintingSchema = Yup.object().shape({
 
 const AddPainting = () => {
     const navigation = useNavigation();
-    const { addPainting } = usePaintingContext();
+    const { id = '' } = useLocalSearchParams<{id: string}>();
+    const { addPainting, paintings, updatePainting } = usePaintingContext();
+    const editPainting = paintings.find((item) => item.id === id);
 
-    // TODO: use hook
+    // If painting is found, pre-fill form with details
+    const initialValues = editPainting
+        ? {
+            name: editPainting.name,
+            artist: editPainting.artist,
+            year: editPainting.year,
+            wikipediaLink: editPainting.wikipediaLink
+        }
+        : {
+            name: '',
+            artist: '',
+            year: 0,
+            wikipediaLink: '',
+        };
 
     return (
         <Box className="flex-1 p-4 dark:bg-neutral-950">
-            <Formik
-                initialValues={{
-                    name: '',
-                    artist: '',
-                    year: 0,
-                    wikipediaLink: '',
+            <Stack.Screen
+                options={{
+                title: initialValues.name || 'Add Painting',
                 }}
+            />
+            <Formik
+                initialValues={initialValues}
                 validationSchema={PaintingSchema}
                 onSubmit={(values, { resetForm }) => {
-                    console.log('Form submit:', values);
-                    addPainting({
-                        name: values.name,
-                        artist: values.artist,
-                        year: values.year,
-                        wikipediaLink: values.wikipediaLink
-                    });
+                    // Add painting using context method
+                    // if editing, update painting
+
+                    if (editPainting) {
+                        updatePainting({
+                            ...editPainting,
+                            name: values.name,
+                            artist: values.artist,
+                            year: values.year,
+                            wikipediaLink: values.wikipediaLink,
+                        });
+                    } else {
+                        addPainting({
+                            name: values.name,
+                            artist: values.artist,
+                            year: values.year,
+                            wikipediaLink: values.wikipediaLink
+                        });
+                    }
 
                     // Reset form
                     resetForm();
