@@ -1,6 +1,7 @@
 import { SupabaseNewPainting, useAddPainting } from "@/hooks/useAddPainting";
 import { useDeletePainting } from "@/hooks/useDeletePainting";
 import { useGetPaintings } from "@/hooks/useGetPaintings";
+import { useUpdatePainting } from "@/hooks/useUpdatePainting";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export type Painting = {
@@ -16,7 +17,7 @@ type PaintingContextType = {
     isLoading: boolean;
     paintings: Painting[];
     addPainting: (paintings: SupabaseNewPainting) => void;
-    updatePainting: (id: string, updatedPainting: Partial<Painting>) => void;
+    updatePainting: (updatedPainting: Partial<Painting>) => void;
     toggleFavorite: (id: string) => void;
     deletePainting: (id: string) => void;
 }
@@ -28,6 +29,7 @@ export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const [paintings, setPaintings] = useState<Painting[]>([]);
     const addPaintingMutation = useAddPainting();
     const deletePaintingMutation = useDeletePainting();
+    const updatePaintingMutation = useUpdatePainting();
 
     const addPainting = async (painting: SupabaseNewPainting) => {
         addPaintingMutation.mutate(painting);
@@ -37,20 +39,14 @@ export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         deletePaintingMutation.mutate(paintingId);
     };
 
-    const updatePainting = (id: string, updatedPainting: Partial<Painting>) => {
-        setPaintings((prev) =>
-            prev.map((painting) =>
-                painting.id === id ? { ...painting, ...updatedPainting } : painting
-            )
-        );
+    const updatePainting = (updatedPainting: Partial<Painting>) => {
+        updatePaintingMutation.mutate(updatedPainting)
     };
 
     const toggleFavorite = (id: string) => {
-        setPaintings((prev) => 
-            prev.map((painting) =>
-                painting.id === id ? { ...painting, isFavorite: !painting.isFavorite } : painting
-            )
-        );
+        const paintingToToggle = paintings.find((painting) => painting.id === id)
+        if (!paintingToToggle) return;
+        updatePainting({ ...paintingToToggle, isFavorite: !paintingToToggle.isFavorite })
     };
 
     useEffect(() => {
