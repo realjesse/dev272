@@ -5,6 +5,6 @@
   "scripts": {
     "prepare": "husky",
     "test": "npm test --prefix week01/my-first-app",
-    "lint": "npx expo lint --prefix week01/my-first-app"
+    "lint": "expo lint --prefix week01/my-first-app"
   }
 }
