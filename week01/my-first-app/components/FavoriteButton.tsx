@@ -11,7 +11,7 @@ const FavoriteButton = ({
   handleFavoriteToggle,
 }: FavoriteButtonProps) => {
   return (
-    <Pressable onPress={handleFavoriteToggle}>
+    <Pressable accessibilityRole="button" onPress={handleFavoriteToggle}>
       <Icon
         as={FavouriteIcon}
         size="xl"
