@@ -2,11 +2,10 @@ import React from "react";
 import { Image } from "@/components/ui/image";
 import { Link, LinkText } from "./ui/link";
 import { useRouter } from "expo-router";
-import { Pressable } from "./ui/pressable";
-import { FavouriteIcon, Icon } from "./ui/icon/index";
 import { Painting, usePaintingContext } from "./ui/painting-contex-provider";
 import { Card } from "./ui/card";
 import { Text } from "@/components/ui/text";
+import FavoriteButton from "./FavoriteButton";
 
 const PaintingCard: React.FC<Painting> = ({
   name,
@@ -49,13 +48,10 @@ const PaintingCard: React.FC<Painting> = ({
             See Details
           </LinkText>
         </Link>
-        <Pressable onPress={() => toggleFavorite(id)}>
-          <Icon
-            as={FavouriteIcon}
-            size="xl"
-            className={`${isFavorite ? "text-red-500" : "text-gray-500"}`}
-          />
-        </Pressable>
+        <FavoriteButton
+          isFavorite={isFavorite}
+          handleFavoriteToggle={() => toggleFavorite(id)}
+        />
       </Card>
     </>
   );
