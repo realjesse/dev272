@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "husky": "^9.1.7"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "test": "npm test --prefix week01/my-first-app",
+    "lint": "npx expo lint --prefix week01/my-first-app"
+  }
+}
