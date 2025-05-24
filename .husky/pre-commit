@@ -1,1 +1,1 @@
-npm test && expo lint
+npm test && npx expo lint
