@@ -23,7 +23,7 @@ type PaintingContextType = {
 };
 
 const PaintingContext = createContext<PaintingContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const PaintingProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -85,7 +85,7 @@ export const usePaintingContext = () => {
   const context = useContext(PaintingContext);
   if (!context) {
     throw new Error(
-      "usePaintingContext must be used within a PaintingProvider"
+      "usePaintingContext must be used within a PaintingProvider",
     );
   }
   return context;

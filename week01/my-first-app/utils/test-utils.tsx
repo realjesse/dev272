@@ -8,7 +8,7 @@ const custommRenderer = (ui: React.ReactElement) => {
   return render(
     <QueryClientProvider client={queryClient}>
       <PaintingProvider>{ui}</PaintingProvider>
-    </QueryClientProvider>
+    </QueryClientProvider>,
   );
 };
 

@@ -14,7 +14,7 @@ describe("FavoriteButton", () => {
       <FavoriteButton
         isFavorite={false}
         handleFavoriteToggle={mockHandleFavoriteToggle}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByRole("button"));

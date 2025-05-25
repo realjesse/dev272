@@ -25,11 +25,11 @@ describe("HomeScreen", () => {
     render(<HomeScreen />);
 
     expect(
-      screen.getByRole("header", { name: /search for a painting!/i })
+      screen.getByRole("header", { name: /search for a painting!/i }),
     ).toBeOnTheScreen();
 
     expect(
-      screen.getByPlaceholderText(/search by painting, artist, or year/i)
+      screen.getByPlaceholderText(/search by painting, artist, or year/i),
     ).toBeOnTheScreen();
   });
 
@@ -45,7 +45,7 @@ describe("HomeScreen", () => {
     // Simulate a search query
     fireEvent.changeText(
       screen.getByPlaceholderText(/search by painting, artist, or year/i),
-      mockQuery
+      mockQuery,
     );
 
     // Check if the data rendered is filtered
@@ -70,7 +70,7 @@ describe("HomeScreen", () => {
     // Simulate a search query
     fireEvent.changeText(
       screen.getByPlaceholderText(/search by painting, artist, or year/i),
-      mockQuery
+      mockQuery,
     );
 
     mockData.forEach((painting) => {
